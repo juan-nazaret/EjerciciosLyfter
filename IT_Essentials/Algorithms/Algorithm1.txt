@@ -1,0 +1,11 @@
+Algoritmo para ver un video en youtube
+1.	Inicio
+2.	Verificar si se tiene un telefono movil con conexión a internet a si no se tiene un telefono movil, verficar si se tiene un tablet
+3.	sino se tiene una tablet entonces verificar si se tiene una computadora
+4.	sino, buscar a alguien que tenga un dispositivo movil.
+5.	Si el dispositivo esta bloqueado, desbloquearlo, sino, continuar con el paso 4
+6.	Confirmar que tipo de dispositivo es a Si se usa un dispositivo con android o apple. utilizar la barra de busqueda y buscar “youtube”
+7.	b si se usa una computadora entonces abrir el navegador i En la barra de URL ingresar “www.youtube.com”
+8.	En la barra de busqueda de youtube buscar el contenido deseado y hacer clic sobre el icono de busqueda
+9.	Elegir uno de los videos resultados de la busqueda y hacer clic encima para reproducirlo
+10.	Fin

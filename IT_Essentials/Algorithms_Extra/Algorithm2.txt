@@ -1,0 +1,15 @@
+Cree un algoritmo que represente cómo prepararse para un examen importante. Debe incluir una lista de actividades (leer, repasar, practicar), condiciones como si ya entendió la materia, o si tiene dudas, y un ciclo que se repita hasta sentirse listo
+
+1.	Inicio
+2.	hacer una lista de los temas a estudiar
+3.	ordenar los elementos de la lista del mas complicado al mas sencillo Hay temas en la lista sin estudiar? 
+4.	si, avanzar al tema 5 con el primer tema que aun no se ha estudiado
+5.	sino, ir al paso 6
+6.	Estudio a	leer la teoría del tema i	si se entendió 100%? si se entendió, practicar ejercicios del tema o explicárselo a alguien mas
+i.	si el paso 5 se ha repetido mas de 2 veces entonces contactar a un maestro o experto en el tema para mayor guía sino entonces repasar la teoría y volver al paso (i)
+7.	b	Con ayuda de una IA revisar si la resolución de los ejercicios es correcta. 
+8.	si es correcta preguntarse si me siento listo para presentar el examen de ese tema a	si me siento listo, regresar al paso 4 con el siguiente tema de la lista. b	sino, regresar al paso 5 con el mismo tema.
+9.	Hacer un examen simulacro de todos los temas
+10.	Si apruebo el examen con mínimo 80 de calificación entonces terminar la sesion de estudio
+11.	sino, marcar todos los temas de la lista como no vistos y regresar al paso 4
+12.	Fin

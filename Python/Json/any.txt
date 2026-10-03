@@ -1,0 +1,71 @@
+Ejercicios_Lyfter/
+ ├── IT_Essentials/
+ │      ├── Algorithms/
+ │      │        ├── Algorithm1.txt
+ │      │        └── Algorithm2.txt
+ │      │
+ │      ├── Algorithms_Extra/
+ │      │        ├── Algorithm1.txt
+ │      │        └── Algorithm2.txt
+ │      │
+ │      ├── Terminals/
+ │      │        ├── Commands.txt
+ │      │        └── Commands_Executed.pdf
+ │      │
+ │      └── Terminals_Extra/
+ │               ├── Commands.txt
+ │               └── Commands_Executed.pdf
+ │
+ ├── Programming_Logic/
+ │      ├── Pseudocode/
+ │      │        ├── Exercise1.txt
+ │      │        ├── Exercise2.txt
+ │      │        ├── ...
+ │      │        └── Exercise10.txt
+ │      │
+ │      ├── Pseudocode_Extra/
+ │      │        ├── Exercise1.txt
+ │      │        ├── Exercise2.txt
+ │      │        ├── ...
+ │      │        └── Exercise10.txt
+ │      │
+ │      ├── Flowcharts/
+ │      │        ├── Flowchart1.png
+ │      │        ├── Flowchart2.png
+ │      │        ├── ...
+ │      │        └── Flowchart10.png
+ │      │
+ │      └── Flowcharts_Extra/
+ │               ├── Flowchart1.png
+ │               ├── Flowchart2.png
+ │               ├── ...
+ │               └── Flowchart10.png
+ │ 
+ ├── Python_Basics/
+ │       ├── Intro_to_Python/
+ │       │       ├── exercise1.py
+ │       │       ├── exercise2.py
+ │       │       └── exercise3.py
+ │       │
+ │       ├── Intro_to_Python_Extra/
+ │       │       ├── exercise1.py
+ │       │       ├── exercise2.py
+ │       │       └── exercise3.py
+ │       │ 
+ │       ├── Syntax/
+ │       │       ├── exercise1.py
+ │       │       ├── exercise2.py
+ │       │       ├── exercise3.py
+ │       │       ├── exercise4.py
+ │       │       └── exercise5.py
+ │       │
+ │       ├── Syntax_Extra/
+ │       │       ├── exercise1.py
+ │       │       ├── exercise2.py
+ │       │       ├── exercise3.py
+ │       │       ├── exercise4.py
+ │       │       └── exercise5.py
+ │       │
+ │       └── *Incluye el resto de ejercicios...*
+ │
+ └── *Incluye el resto de módulos...*

@@ -1,0 +1,23 @@
+Ejercicios extras de algoritmos
+Cree un algoritmo como preparar una fiesta sorpresa para un amigo o familiar. Considere si la persona está en casa o no, si los invitados ya llegaron o no, qué hacer mientras esperan, y cómo finaliza la fiesta
+
+
+1.	Inicio 
+2.	Llegar  la casa del festejado verificar si esta el festejado esta en casa
+3.	sino esta continuar con el paso 4
+4.	si esta en casa entonces pedir a un amigo que lo llame para llevarlo al centro comercial
+5.	Pedir a un familiar que abra la casa
+6.	Adornar la casa con los colores favoritos de la persona a festejar
+7.	Preparar los alimentos y botanas
+8.	Recibir a los invitados a	Asignar a una persona que este atenta a la puerta 
+9.	Cuando suene el timbre revisar quien es i	si es el festejado avisar a todos y apagar las luces y pasar directo al paso 
+a.	ii	sino, entonces dejar pasar al invitado.
+10.	Si falta algun invitado todavia enviar un texto para confirmar su asistencia
+11.	Si un invitado no contesta 10 minutos antes de la hora acordada de inicio entonces mandar mensaje que no se presente sino hasta 20 minutos después 
+12.	10 minutos antes de que llegue todos dejan de hacer lo que estan haciendo y se apagan las luces
+13.	Cada invitado toma un accesorio de festejo y decoración 
+14.	Todos los invitados se esconden cerca de la puerta principal
+15.	La persona mas cercana a la puerta avisa a todos cuando llegue el festejado y todos guardan total silencio
+16.	Cuando se abra la puerta la persona asiganada prende las luces y todos gritan “sorpresa”al mismo tiempo inicia la fiesta
+17.	La fiesta finaliza a las 11 pm
+18.	Fin
