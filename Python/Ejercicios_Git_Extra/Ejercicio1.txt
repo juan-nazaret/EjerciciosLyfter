@@ -1,0 +1,17 @@
+1.- commit 3bc9c9c63561262d05a53bf7017e51da883e8bd0 (HEAD -> past-exercises, origin/past-exercises, origin/ejercicios-listos)
+Author: juannazaret.mx <nazaret.who@gmail.com>
+Date:   Sat Oct 3 01:17:15 2026 -0600
+
+    Uploading first exercises
+
+Este fue el segundo commit que hice en el que se subieron todos los ejercicios pasados 
+que se han hecho hasta lo que va del curso 
+
+2.- commit b840e7b7602231877f180904bd8df0faef94bcd2 (origin/main, origin/HEAD, main)
+Author: juan-nazaret <77813711+juan-nazaret@users.noreply.github.com>
+Date:   Fri Oct 2 16:02:24 2026 -0600
+
+    Initial commit
+    
+Este es el primer commit que se hizo porque se creó el repositorio y junto con el 
+repositorio se genera el commit vacío 
