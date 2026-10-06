@@ -1,0 +1,26 @@
+Cree un algoritmo de como se prepara para ir a su viaje de diversión favorito
+
+1.	Inicio
+2.	Abrir el calendario en tu teléfono a	elegir una fecha del calendario
+3.	la fecha elegida tiene un evento programado?
+a.	si hay un evento programado marcar la fecha como no disponible y
+i.	volver al paso (a)
+b.	si no hay un evento programado, establecer el evento “viaje” por todo el día
+4.	Buscar en un teléfono inteligente la aplicación de air b&b
+5.	Seleccionar el destino
+6.	seleccionar la fecha desplegar la lista de lugares
+7.	Elegir el lugar preferido a	tiene el numero de habitaciones que buscas?
+a.	i	si las tiene, el costo por noche esta dentro del presupuesto para hospedaje? si esta, reservar.
+i.	sino, regresar al paso 6 y elegir otra opción
+8.	b	sino, regresar al paso 6 y elegir otra opción
+9.	Preparar equipaje a	Ya tengo 2 pantalones empacados?
+10.	No, elegir el primer pantalon del closet, es para clima cálido?
+i.	si, empacarlo no, dejarlo a un lado regresar al paso (i)
+11.	Si, pasar el paso (b)
+12.	b	ya tengo 2 playeras empacadas?
+13.	sino, Elegir la primer playera de la pila en el closet, es para clima cálido?
+a.	si, empacarlo
+b.	no, hacerlo a un lado y regresar al paso (a)
+14.	si, pasar al paso 9.
+15.	Cerrar la maleta y llevarla al auto
+16.	Fin

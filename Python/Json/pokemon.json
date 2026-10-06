@@ -1,0 +1,105 @@
+[
+    {
+        "name": "Pikachu",
+        "type": "Electric",
+        "level": 54,
+        "weight_kg": 6.0,
+        "is_shiny": false,
+        "held_item": null,
+        "skills": [
+            "Thunder Shock",
+            "Quick Attack",
+            "Thunderbolt",
+            "Volt Tackle"
+        ],
+        "stats": {
+            "hp": 35,
+            "attack": 55,
+            "defense": 40,
+            "sp_attack": 50,
+            "sp_defense": 50,
+            "speed": 90
+        }
+    },
+    {
+        "name": "Charmander",
+        "type": "Fire",
+        "level": 8,
+        "weight_kg": 8.5,
+        "is_shiny": true,
+        "held_item": "Charcoal",
+        "skills": [
+            "Ember",
+            "Scratch",
+            "Tackle",
+            "Smokescreen"
+        ],
+        "stats": {
+            "hp": 39,
+            "attack": 52,
+            "defense": 43,
+            "sp_attack": 60,
+            "sp_defense": 50,
+            "speed": 65
+        }
+    },
+    {
+        "name": "Blastoise",
+        "type": "Agua",
+        "level": 36,
+        "weight_kg": 85.5,
+        "is_shiny": true,
+        "held_item": "null",
+        "skills": [
+            "Torrente",
+            "Cura lluvia"
+        ],
+        "stats": {
+            "hp": 79,
+            "attack": 83,
+            "defense": 100,
+            "sp_attack": 85,
+            "sp_defense": 105,
+            "speed": 78
+        }
+    },
+    {
+        "name": "Kakuna",
+        "type": "bicho",
+        "level": 7,
+        "weight_kg": 10.0,
+        "is_shiny": true,
+        "held_item": "null",
+        "skills": [
+            "mudar"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 25,
+            "defense": 50,
+            "sp_attack": 25,
+            "sp_defense": 25,
+            "speed": 35
+        }
+    },
+    {
+        "name": "Butterfree",
+        "type": "Bicho",
+        "level": 10,
+        "weight_kg": 32.0,
+        "is_shiny": true,
+        "held_item": "polvo plata",
+        "skills": [
+            "ojo compuesto",
+            "cromolente"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 45,
+            "defense": 50,
+            "sp_attack": 50,
+            "sp_defense": 80,
+            "speed": 70
+        }
+    }
+]

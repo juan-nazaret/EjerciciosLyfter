@@ -1,0 +1,27 @@
+Algoritmo de rutina diaria
+1.	Inicio
+2.	Levantarme
+3.	revisar si son 6.30 am i si son menos de 6.30 am, volver a dormir
+a.	ii sino, entonces levantarme
+4.	Confirmar qué día de la semana es a si es Lunes o miercoles o viernes, llevar a mi pareja a su trabajo
+5.	sino, prepararme para desayunar
+6.	Desayunar 
+7.	Levantar la mesa
+8.	Lavar los platos a si hay un plato sucio seguir al paso (b)
+9.	b mojar la esponja de lavar los platos c vertir jabon sobre la esponja
+10.	d tallar el plato de manera uniforme cubriendo toda la superficie e abrir la llave del agua f enjuagar el plato
+11.	g cerrar la llave del agua h poner el plato a escurrir i regresar al paso (a)
+12.	Iniciar mi horario de estudio
+13.	Horario de receso para limpieza a revisar mi calendario de limpieza
+14.	b iniciar el deber asignado
+15.	Iniciar mi segunda ronda de estudio
+16.	Limpiar el jardin 
+17.	Pasear a los perros a llamar al perro sin collar b poner el collar justo c abrochar la correa d repetir el paso (a)
+18.	darles de comer a los perros a Abrir el recipente de las croquetas i tomar el plato vacio
+19.	servir una medida de croquetas
+20.	regresar al paso i
+21.	b Cerrar el recipiente de las croquetas
+22.	bañarme
+23.	Ver una serie mientras ceno
+24.	Dormir
+25.	Fin
