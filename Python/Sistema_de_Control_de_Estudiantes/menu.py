@@ -4,7 +4,7 @@ import data
 
 #To show MAIN MENU
 def show_menu():
-    existing_student_list = False
+    is_there_an_exported_list = False
     new_students_list=[]
     while True:
 
@@ -23,26 +23,21 @@ def show_menu():
         
         match user_menu_selection:  
             case 1:
-                new_students_list = actions.create_new_student(existing_student_list,new_students_list)
-                print('***LISTA IMPORTADA***')
+                actions.create_new_student(new_students_list)
             case 2: 
-                actions.obtain_all_students(existing_student_list)
+                actions.obtain_all_students(new_students_list)
             case 3:
-                actions.obtain_highest_average(existing_student_list)
+                actions.obtain_highest_average(new_students_list)
             case 4:
-                actions.see_all_students_average(existing_student_list)
+                actions.see_all_students_average(new_students_list)
             case 5: 
-                actions.delete_student(existing_student_list)
-                existing_student_list = data.obtain_list_from_csv()
+                actions.delete_student(new_students_list)
             case 6:
-                actions.obtain_failed_averages(existing_student_list)
+                actions.obtain_failed_averages(new_students_list)
             case 7: 
-                list_was_exported = data.save_students_dictionary_list(new_students_list)
-                if list_was_exported == True:
-                    new_students_list.clear()
-                existing_student_list = data.obtain_list_from_csv()
+                data.save_students_dictionary_list(new_students_list)
             case 8:
-                existing_student_list = data.obtain_list_from_csv()
+                data.obtain_list_from_csv(new_students_list)
             case 9:
                 print('\n\n***SESIÓN TERMINADA***\n\n')
                 break

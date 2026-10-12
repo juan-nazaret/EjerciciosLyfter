@@ -5,78 +5,53 @@ import data
 
 #NEW STUDENT*****
 #fill in new student logic
-def create_new_student_main(existing_student_list,new_student_list, new_student_list_not_imported_yet):
-    
-    if existing_student_list == False:
-        print('\nNo existe un archivo importado de estudiantes por lo que no se puede validar una nueva entrada. Importe un archivo primero')
-        return None
-    else:
-        new_student_dictionary = {}
+def create_new_student_main(new_students_list):
 
-        print('\nAGREGAR NUEVO ESTUDIANTE ***')
-        name = add_new_name()
-        new_student_dictionary['name'] = name
+    new_student_dictionary = {}
 
-        section = add_new_section()
-        new_student_dictionary['section'] = section
+    print('\nAGREGAR NUEVO ESTUDIANTE ***')
+    name = add_new_name()
+    new_student_dictionary['name'] = name
 
-        student_exists_in_existing_students_list =  student_exists_def(name,section,existing_student_list)
-        if student_exists_in_existing_students_list == True:
-            print('El estudiante ya existe en esta sección.')
-            new_student_dictionary = False
-            return new_student_dictionary
+    section = add_new_section()
+    new_student_dictionary['section'] = section
 
-        student_exists_in_new_student_list = student_exists_in_new_student_list_def(name,section,new_student_list)
-        if student_exists_in_new_student_list == True:
-            print('El estudiante ya existe en esta nueva lista de nuevos alumnos aun no exportada')
-            new_student_dictionary = False
-            return new_student_dictionary
-
-        student_exists_in_new_list_not_imported_yet = student_exists_in_new_student_list_not_imported_yet_def(name,section,new_student_list_not_imported_yet)
-        if student_exists_in_new_list_not_imported_yet == True:
-            print('El alumno ya existe en la lista en espera de ser exportada')
-            new_student_dictionary = False
-            return new_student_dictionary
-
-        spanish_note = obtain_note('spanish')
-        new_student_dictionary['spanish_note'] = spanish_note
-
-        english_note = obtain_note('english')
-        new_student_dictionary['english_note'] = english_note
-
-        socials_note = obtain_note('socials')
-        new_student_dictionary['socials_note'] = socials_note
-
-        sciences_note = obtain_note('sciences')
-        new_student_dictionary['sciences_note'] = sciences_note
-
-        new_student_list
+    student_exists =  student_exists_def(name,section, new_students_list)
+    if student_exists == True:
+        print('El estudiante ya existe en esta sección.')
+        new_student_dictionary = False
         return new_student_dictionary
+
+    spanish_note = obtain_note('spanish')
+    new_student_dictionary['spanish_note'] = spanish_note
+
+    english_note = obtain_note('english')
+    new_student_dictionary['english_note'] = english_note
+
+    socials_note = obtain_note('socials')
+    new_student_dictionary['socials_note'] = socials_note
+
+    sciences_note = obtain_note('sciences')
+    new_student_dictionary['sciences_note'] = sciences_note
+
+    return new_student_dictionary
 
 
 #It creates a list of dictionaries of new students and returns it 
-def create_new_student(existing_student_list,new_student_list_not_imported_yet):
-    new_students_list = []
-    if len(new_student_list_not_imported_yet) > 0:
-        print(f'\nRecuerda que tienes una lista en espera de ser exportada, los alumnos de esa fila son:\n') 
-        for number, student in enumerate(new_student_list_not_imported_yet, start=1):
-                    print(f'Alumno {number}\n------------------\nnombre: {student['name']}\nsección: {student['section']}\nnota de español:{student['spanish_note']}\nnota de inglés:{student['english_note']}\nnota de sociales:{student['socials_note']}\nnota de ciencias:{student['sciences_note']}\n')
-    
+def create_new_student(new_students_list):
     while True:
-        new_student_dictionary = create_new_student_main(existing_student_list, new_students_list, new_student_list_not_imported_yet)
+        new_student_dictionary = create_new_student_main(new_students_list)
         if new_student_dictionary == False:
             create_another_student = user_response()
             if create_another_student == 'no':
-                new_student_list_not_imported_yet.extend(new_students_list)
-                return new_student_list_not_imported_yet
+                return 
         elif new_student_dictionary == None:
-            return existing_student_list
+            return 
         else: 
             new_students_list.append(new_student_dictionary)
             create_another_student = user_response()
             if create_another_student == 'no':
-                new_student_list_not_imported_yet.extend(new_students_list)
-                return new_student_list_not_imported_yet
+                return 
         
 
 #Do the user want to create a new student?
@@ -93,26 +68,24 @@ def user_response():
 
 
 #obtains and prints all the students list
-def obtain_all_students(existing_student_list):
-    if existing_student_list == False:
-        print('\nNo existe un archivo importado de estudiantes')
-    elif len(existing_student_list) == 0:
-        print(f'\nNo hay estudiantes para mostrar')
+def obtain_all_students(new_students_list):
+    if len(new_students_list) == 0:
+        print('\nNo hay registros para mostrar')
     else:
         print('\nMostrar todos los estudiantes*** \n')
-        for number, student in enumerate(existing_student_list, start=1):
+        for number, student in enumerate(new_students_list, start=1):
             print(f'Alumno {number}\n------------------\nnombre: {student['name']}\nsección: {student['section']}\nnota de español:{student['spanish_note']}\nnota de inglés:{student['english_note']}\nnota de sociales:{student['socials_note']}\nnota de ciencias:{student['sciences_note']}\n')
 
 
 #**************** 3 TOP 3 STUDENTS ******************************
 
 
-def obtain_highest_average(existing_student_list):
-    students_list_from_csv = existing_student_list
-    if students_list_from_csv == False:
-        print('No existe un archivo importado')
+def obtain_highest_average(new_students_list):
+    if len(new_students_list) == 0 :
+        print('\nNo hay archivos para mostrar')
+        return 
     else: 
-        averages_list = create_all_students_average_dictionary(students_list_from_csv)
+        averages_list = create_all_students_average_dictionary(new_students_list)
         averages_list.sort(reverse= True, key=sort_list)
         top_3_list = obtain_top_3(averages_list)
         print('\nTOP 3 ********\n_________________________\n')
@@ -139,14 +112,13 @@ def obtain_top_3(averages_list):
 #**************** 4 SHOW ALL STUDENTS AVERAGES ******************************
 
 
-def see_all_students_average(existing_student_list):
-    students_list_from_csv = existing_student_list
-    if students_list_from_csv == False:
-        print(f'\nNO hay un archivo importado de alumnos')
-    elif len(students_list_from_csv) == 0:
+def see_all_students_average(new_students_list):
+    
+    if len(new_students_list) == 0:
         print('NO hay registros de estudiantes para mostrar')
+        return
     else:
-        all_students_average_list = create_all_students_average_dictionary(students_list_from_csv)
+        all_students_average_list = create_all_students_average_dictionary(new_students_list)
         print(f'\n***Mostrar todos los promedios****\n-------------------------------------------')
         for number, index in enumerate(range(len(all_students_average_list)),start=1): 
             print(f'{number}.- name:{all_students_average_list[index]['name']} sección: {all_students_average_list[index]['section']} promedio: {all_students_average_list[index]['average_note']}')
@@ -160,30 +132,23 @@ def obtain_student_data():
     return name,section
 
 
-def delete_student(existing_student_list):
-    list_of_students_from_csv = existing_student_list
-    if list_of_students_from_csv == False:
-        print('\nNo existe un archivo importado, no hay alumnos para mostrar o eliminar\n')
-        return
-    elif len(list_of_students_from_csv) == 0:
+def delete_student(new_students_list):
+    if len(new_students_list) == 0:
         print(f'No hay registros para mostrar o eliminar\n')
         return
     else:
         name,section = obtain_student_data()
-        for index in range(len(list_of_students_from_csv)):
-            if list_of_students_from_csv[index]['name'].lower() == name.lower():
-                if list_of_students_from_csv[index]['section'] == section:
-                    print(f'El estudiante a eliminar nombre: {name} sección: {section}')
+        for index in range(len(new_students_list)):
+            if new_students_list[index]['name'].lower() == name.lower():
+                if new_students_list[index]['section'] == section:
+                    print(f'El estudiante a eliminar ---> nombre: {name} sección: {section}')
                     user_response = yes_or_no('Desea continuar? si/no: ')
                     if user_response == True:
-                        list_of_students_from_csv.pop(index)
-                        if len(list_of_students_from_csv) > 0:
-                            data.save_students_dictionary_list_after_delete(list_of_students_from_csv,"LISTA ACTUALIZADA")
-                        else:
-                            data.save_students_dictionary_empty_list(['name','section','spanish_note','english_note','socials_note','sciences_note'])
-                        print('   ***Alumno eliminado***')
-                        return
+                        new_students_list.pop(index)
+                        print('\n*** Alumno Eliminado ***')
+                        return 
                     else:
+                        print(f'\n*** Proceso de eliminación cancelado ***')
                         return
     print('\nEl estudiante no existe\n')
 
@@ -191,14 +156,11 @@ def delete_student(existing_student_list):
 #**************** 6 SHOW FAILED NOTES ******************************
 
 
-def obtain_failed_averages(existing_student_list):
-    list_of_students_from_csv = existing_student_list
-    if list_of_students_from_csv == False:
-        print('\nNo existe un archivo exportado, no hay registros para mostrar\n')
-    elif len(list_of_students_from_csv) == 0:
+def obtain_failed_averages(new_students_list):
+    if len(new_students_list) == 0:
         print('\nNo hay registros para mostrar\n')
     else:
-        failed_notes_list = create_failed_averages_dictionary(list_of_students_from_csv)
+        failed_notes_list = create_failed_averages_dictionary(new_students_list)
         print('\n*** Lista de alumnos con materias reprobadas ***\n--------------------------------------------')
         show_failed_notes_list(failed_notes_list)
 
@@ -233,9 +195,9 @@ def show_failed_notes_list(failed_notes_list):
 
 #ACTIONS UTILITIES **************************************
 
-def create_all_students_average_dictionary(students_list_from_csv):
+def create_all_students_average_dictionary(new_students_list):
     averages_list = []
-    for number, student in enumerate(students_list_from_csv):
+    for number, student in enumerate(new_students_list):
         average_dictionary = {}
         average = (int(student['spanish_note']) + int(student['english_note']) + int(student['socials_note']) + int(student['sciences_note'])) / 4
         average_dictionary['name'] = student['name']
@@ -312,12 +274,11 @@ def obtain_note(subject):
 
 
 #Validates wether the name and section exist already
-def student_exists_def(name, section,existing_student_list):
-    
-    if existing_student_list == False:
+def student_exists_def(name, section,new_students_list):
+    if len(new_students_list) == 0:
         return False
     else:
-        for student in existing_student_list:
+        for student in new_students_list:
             if student['name'].lower() == name.lower():
                 if student['section'] == section:
                     return True 
