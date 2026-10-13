@@ -1,5 +1,4 @@
 import re
-import data
 
 #**************** 1 ADD NEW STUDENT ******************************
 
@@ -16,8 +15,8 @@ def create_new_student_main(new_students_list):
     section = add_new_section()
     new_student_dictionary['section'] = section
 
-    student_exists =  student_exists_def(name,section, new_students_list)
-    if student_exists == True:
+    student_exists_var =  student_exists(name,section, new_students_list)
+    if student_exists_var == True:
         print('El estudiante ya existe en esta sección.')
         new_student_dictionary = False
         return new_student_dictionary
@@ -74,7 +73,7 @@ def obtain_all_students(new_students_list):
     else:
         print('\nMostrar todos los estudiantes*** \n')
         for number, student in enumerate(new_students_list, start=1):
-            print(f'Alumno {number}\n------------------\nnombre: {student['name']}\nsección: {student['section']}\nnota de español:{student['spanish_note']}\nnota de inglés:{student['english_note']}\nnota de sociales:{student['socials_note']}\nnota de ciencias:{student['sciences_note']}\n')
+            print(f'Alumno {number}\n------------------\nnombre: {student["name"]}\nsección: {student["section"]}\nnota de español:{student["spanish_note"]}\nnota de inglés:{student["english_note"]}\nnota de sociales:{student["socials_note"]}\nnota de ciencias:{student["sciences_note"]}\n')
 
 
 #**************** 3 TOP 3 STUDENTS ******************************
@@ -89,9 +88,9 @@ def obtain_highest_average(new_students_list):
         averages_list.sort(reverse= True, key=sort_list)
         top_3_list = obtain_top_3(averages_list)
         print('\nTOP 3 ********\n_________________________\n')
-        for number, index in enumerate (range(len(top_3_list)),start=1):
+        for number, student in enumerate(top_3_list, start=1):
             try:
-                print(f'{number}: nombre: {top_3_list[index]['name']}, sección: {top_3_list[index]['section']}, promedio: {top_3_list[index]['average_note']}')
+                print(f'{number}: nombre: {student["name"]}, sección: {student["section"]}, promedio: {student["average_note"]}')
             except KeyError as ex:
                 print(f'{number}:')
 
@@ -103,9 +102,10 @@ def obtain_top_3(averages_list):
     top_3_list = []
     for index in range(0,3):
         try:
-            top_3_list.append(averages_list[index])
+            if averages_list[index] != None:
+                top_3_list.append(averages_list[index])
         except IndexError as ex:
-            top_3_list.append({})
+            continue
     return top_3_list
 
     
@@ -121,7 +121,7 @@ def see_all_students_average(new_students_list):
         all_students_average_list = create_all_students_average_dictionary(new_students_list)
         print(f'\n***Mostrar todos los promedios****\n-------------------------------------------')
         for number, index in enumerate(range(len(all_students_average_list)),start=1): 
-            print(f'{number}.- name:{all_students_average_list[index]['name']} sección: {all_students_average_list[index]['section']} promedio: {all_students_average_list[index]['average_note']}')
+            print(f'{number}.- name:{all_students_average_list[index]["name"]} sección: {all_students_average_list[index]["section"]} promedio: {all_students_average_list[index]["average_note"]}')
 
 
 #**************** 5 DELETE A STUDENT ******************************
@@ -161,8 +161,11 @@ def obtain_failed_averages(new_students_list):
         print('\nNo hay registros para mostrar\n')
     else:
         failed_notes_list = create_failed_averages_dictionary(new_students_list)
-        print('\n*** Lista de alumnos con materias reprobadas ***\n--------------------------------------------')
-        show_failed_notes_list(failed_notes_list)
+        if len(failed_notes_list) == 0:
+            print('\n*** no hay datos para mostrar ***')
+        else:
+            print('\n*** Lista de alumnos con materias reprobadas ***\n--------------------------------------------')
+            show_failed_notes_list(failed_notes_list)
 
 def create_failed_averages_dictionary(list_of_students_from_csv):
     failed_notes_list =[]
@@ -236,7 +239,7 @@ def add_new_section():
 
 #it validates section
 def is_valid_section(section):
-    pattern = r'^\d{2}+[A-Z]$'
+    pattern = r'^\d{2}[A-Z]$'
     if re.match(pattern, section):
         return True
     else:
@@ -244,9 +247,9 @@ def is_valid_section(section):
 
 
 #it asks for a yes or no answer form the user
-def yes_or_no(mensaje):
+def yes_or_no(message):
     while True:
-        user_response = input(mensaje).lower()
+        user_response = input(message).lower()
         if user_response in ['si', 'no']:
             if user_response == 'si':
                 return True
@@ -274,7 +277,7 @@ def obtain_note(subject):
 
 
 #Validates wether the name and section exist already
-def student_exists_def(name, section,new_students_list):
+def student_exists(name, section,new_students_list):
     if len(new_students_list) == 0:
         return False
     else:
@@ -282,20 +285,4 @@ def student_exists_def(name, section,new_students_list):
             if student['name'].lower() == name.lower():
                 if student['section'] == section:
                     return True 
-    return False
-
-
-def student_exists_in_new_student_list_def(name,section,new_students_list):
-    for student in  new_students_list:
-                if student['name'].lower() == name.lower():
-                    if student['section'] == section:
-                        return True 
-    return False
-
-
-def student_exists_in_new_student_list_not_imported_yet_def(name,section,new_student_list_not_imported_yet):
-    for student in  new_student_list_not_imported_yet:
-                if student['name'].lower() == name.lower():
-                    if student['section'] == section:
-                        return True 
     return False
