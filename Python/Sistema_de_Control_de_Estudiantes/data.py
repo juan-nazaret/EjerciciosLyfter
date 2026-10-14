@@ -36,12 +36,6 @@ def save_students_dictionary_list(new_students_list):
             return True
 
 
-#WRITES COLUMNS ONLY
-def save_students_dictionary_empty_list(data):
-    with open(file_path, 'w',encoding='utf-8', newline=" ") as file:
-        writer = csv.DictWriter(file,data)
-        writer.writeheader()
-
 #Avoids function from duplicating data 
 def avoid_duplicate_data(new_students_list, list_from_csv):
     for csv_student in list_from_csv:

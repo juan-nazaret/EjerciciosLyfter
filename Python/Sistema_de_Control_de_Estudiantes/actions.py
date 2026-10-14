@@ -253,9 +253,10 @@ def yes_or_no(message):
         if user_response in ['si', 'no']:
             if user_response == 'si':
                 return True
-            else: 
-                print('\nOpción inválida, intente de nuevo\n')
+            else:
                 return False
+        else: 
+            print('\nOpción inválida, intente de nuevo\n')
 
 
 

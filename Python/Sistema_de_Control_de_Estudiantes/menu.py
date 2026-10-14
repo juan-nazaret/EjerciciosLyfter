@@ -15,8 +15,8 @@ def show_menu():
         '4.- Ver promedio de todos los estudiantes\n' \
         '5.- Eliminar estudiante\n' \
         '6.- Ver los alumnos con materias reprobadas\n' \
-        '7.- Exportar lista de nuevos alumnos\n' \
-        '8.- Importar archivo de lista de alumnos existentes\n'
+        '7.- Exportar todos los estudiantes a csv\n' \
+        '8.- Importar estudiantes desde csv\n'
         '9.- Salir\n')
 
         user_menu_selection = obtain_user_menu_selection()
