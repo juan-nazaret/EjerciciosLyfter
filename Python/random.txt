@@ -1,11 +1,1 @@
-Learning Python can be an exciting journey
- because every new concept helps you understand how programs work. 
- At first, ideas like loops, functions, variables, and files may seem 
- confusing, but practice makes them easier. When working with files, 
- Python provides useful methods such as read(), write(), seek(), and tell(). 
- Each method has a specific purpose. The most important thing is to 
- understand what happens step by step instead of memorizing everything. 
- Making mistakes is completely normal, especially when learning programming. 
- Every error gives you an opportunity to understand the language better and 
-improve your problem-solving skills. hola mundo de nada
- 56
+note
