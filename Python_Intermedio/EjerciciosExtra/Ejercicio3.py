@@ -1,3 +1,5 @@
+#EJERCICIO EXTRA 3
+
 class Product:
     def __init__(self, name, price,stock):
         self.name = name
