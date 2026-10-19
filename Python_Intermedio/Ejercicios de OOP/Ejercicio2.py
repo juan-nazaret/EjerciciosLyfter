@@ -1,18 +1,31 @@
 class Bus:
     max_passengers = 5
-    passengers = []
+    def __init__(self):
+        self.passengers = []
 
-    def add_passenger(self):
+    def add_passenger(self, person):
         if len(self.passengers) < self.max_passengers:
-            person = register_passenger()
             self.passengers.append(person)
-            print('pasajero agregado')
-            print(f'nombre del pasajero: {person.name}')
-            print(f'edad del pasajero: {person.age}')
+            print('pasajero agregado con éxito')
         else: 
             print('\n**** El bus esta lleno, no se admiten más pasajeros ***')
             
-
+    def delete_passenger(self):
+        name = input('Ingrese el nombre del pasajero a bajar: ')
+        for index,passenger in enumerate(self.passengers):
+            if passenger.name.lower() == name.lower():
+                self.passengers.pop(index)
+                print('pasajero eliminado con éxito')
+                return
+        print('\nel pasajero no existe\n')
+            
+    def print_passengers_list(self):
+        if len(self.passengers) == 0:
+            print(f'no hay pasajeros')
+        else:
+            print('\n*** LISTA DE PASAJEROS ***\n')
+            for number, passenger in enumerate(self.passengers, start=1):
+                print(f'{number}.- nombre:{passenger.name}, edad:{passenger.age}\n')
 
 class Person:
     def __init__(self, name, age):
@@ -45,28 +58,35 @@ def register_passenger():
 
 def menu():
     while True:
-        print("MENU\n" \
+        print("MENU\n"\
         "1.- Subir pasajero\n" \
-        "2.- Salir")
+        "2.- bajar pasajero\n" \
+        "3.- mostrar lista de pasajeros\n"
+        "4.- Salir")
 
         user_selection1 = user_selection()
-        if user_selection1 in [1,2]:
-            match user_selection1:
-                case 1:
-                    bus1.add_passenger()
-                case 2: 
-                    print('*** FIN ***')
-                    exit()
-        else: 
-            print('Opción invalida, intente de nuevo')
-            
+        match user_selection1:
+            case 1:
+                person = register_passenger()
+                bus1.add_passenger(person)
+            case 2:
+                bus1.delete_passenger()
+            case 3:
+                bus1.print_passengers_list()
+            case 4: 
+                print('*** FIN ***')
+                exit()
 
 def user_selection():
+    
     while True:
-        user_selection = int(input('Ingrese su opción: '))
-        if user_selection in [1,2]:
-            return user_selection
-        else:
+        try:
+            user_selection = int(input('Ingrese su opción: '))
+            if user_selection in [1,2,3,4]:
+                return user_selection
+            else:
+                print('opción inválida, intente de nuevo')
+        except ValueError as ex:
             print('opción inválida, intente de nuevo')
 
 bus1 = Bus()
