@@ -17,7 +17,7 @@ class SavingsAccount(BankAccount):
 
     def withdraw_money(self,amount):
             if (self.balance - amount) < self.min_balance:
-                print('\n!! fondos insuficientes para procesar la transacción\n')
+                raise ValueError ('los fondos no son suficientes\n')
             else:
                 self.balance -= amount
                 print(f'Transacción exitosa')
@@ -85,7 +85,10 @@ def account_menu(account_object):
             case 2:
                 print('opción 2 retirar\n--------------------\n')
                 amount = validate_int('retirar')
-                account_object.withdraw_money(amount)
+                try:
+                    account_object.withdraw_money(amount)
+                except ValueError as ex:
+                    print(ex)
             case 3:
                 print('opción 3 regresar al menú principal\n')
                 return
