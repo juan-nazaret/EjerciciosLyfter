@@ -1,48 +1,41 @@
 from abc import ABC, abstractmethod
 
 class User(ABC):
-    def __init__(self,name, role):
+    def __init__(self,name):
         self._name = name
-        self._role = role
 
     @abstractmethod
     def get_role(self):
-        return self._role
+        pass
     
     @abstractmethod
-    def has_permission(self,permission):
+    def has_permission(self,action):
         pass
 
 
 class AdminUser(User):
     def __init__(self, name):
-        self._role = 'Admin'
-        super().__init__(name,self._role)
+        super().__init__(name)
 
     def get_role(self):
-        return self._role
+        return 'Admin'
 
-    def has_permission(self, permission):
-            if permission in ['read','write','delete']:
-                return True
-            else:
-                return False
+    def has_permission(self,action):
+        return action != ""
+            
     
     
 
 class RegularUser(User):
     def __init__(self, name):
-        self._role = 'Regular user'
-        super().__init__(name, self._role)
+        super().__init__(name)
 
     def get_role(self):
-            return self._role
+            return 'Regular User'
 
-    def has_permission(self, permission):
-        if permission in ['read']:
-            return True
-        else: 
-            return False
+    def has_permission(self, action):
+        return action in ['read']
+        
         
 admin = AdminUser('Adrian')
 print(admin.get_role())

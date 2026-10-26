@@ -1,21 +1,18 @@
 class Employee:
     def __init__(self, name,salary):
         self._name = name
-        if salary < 0:
-            raise ValueError('El salario no puede ser negativo\n')
-        else: 
-            self._salary = salary
+        self.salary = salary
 
     @property
-    def my_name(self):
+    def name(self):
         return self._name
 
-    @my_name.setter
-    def my_name(self,name):
+    @name.setter
+    def name(self,name):
         self._name = name
 
-    @my_name.deleter
-    def my_name(self):
+    @name.deleter
+    def name(self):
         del self._name
 
     @property
@@ -24,7 +21,7 @@ class Employee:
 
     @salary.setter
     def salary(self,salary):
-        if salary > 0:
+        if salary >= 0:
             self._salary = salary
         else: 
             raise ValueError('El salario no puede ser un número negativo\n')
@@ -33,14 +30,14 @@ class Employee:
         if percentage < 0 :
             raise ValueError('El aumento salarial no puede ser negativo\n')
         else:
-            new_salary = self._salary * (percentage / 100)
-            self._salary += new_salary
-            print(f'El salario actualizado es: {self._salary}')
+            new_salary = self._salary * (1 + percentage)
+            self.salary = new_salary
+            return self.salary
 
 def salary_raise():
     while True:
         try:
-            percentage = float(input(('Ingresa el porcentaje que se aumentara de salario: ')))
+            percentage = float(input(('Ingresa el porcentaje que se aumentara de salario en decimales (si es 10% ingresa .1): ')))
             print(f'Aumento de salario {percentage}%')
             return  percentage
         except ValueError as ex:
@@ -48,10 +45,11 @@ def salary_raise():
             
 
 try:
-    employee = Employee('juan', 5000)
-    print(f'nombre: {employee.my_name}, salario: {employee.salary}')
+    employee = Employee('juan', 1000)
+    print(f'nombre: {employee.name}, salario: {employee.salary}')
     percentage = salary_raise()
     employee.promote(percentage)
+    print(f'El salario actualizado es: {employee.salary}')
 except ValueError as ex:
     print(ex)
 
