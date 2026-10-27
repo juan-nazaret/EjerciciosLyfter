@@ -21,7 +21,7 @@ class AdminUser(User):
         return 'Admin'
 
     def has_permission(self,action):
-        return action != ""
+        return True
             
     
     
