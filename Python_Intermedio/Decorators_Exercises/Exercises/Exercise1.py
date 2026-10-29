@@ -7,6 +7,8 @@ class Phone:
 def insurance_only(func):
     def wrapper(phone, *args):
         print(f'name = {phone.name}, market value = {phone.market_value}, insurance= {phone.insurance} ')
+        insurance = func(phone,*args)
+        print(insurance)
         return func(phone,*args)
     return wrapper
 

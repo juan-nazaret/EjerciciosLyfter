@@ -2,7 +2,7 @@ def numbers_only(func):
     def wrapper(*args):
         if not all(isinstance(item,(int,float)) for item in args):
             raise ValueError('Not all items are numbers')
-        func(args)
+        func(*args)
     return wrapper
 
 @numbers_only
