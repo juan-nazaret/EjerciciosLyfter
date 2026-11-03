@@ -1,19 +1,19 @@
-user_logged_in = False
+user_logged_in = True
 
 
 def requires_login(func):
     def wrapper():
         if user_logged_in == False:
             raise ValueError("Usuario no autenticado")
-        func()
+        return func()
     return wrapper
 
 
 @requires_login
 def view_profile():
-    print("Mostrando perfil del usuario")
+    return "Mostrando perfil del usuario"
 
 try:
-    view_profile()
+    print(view_profile())
 except ValueError as ex:
     print(ex)
