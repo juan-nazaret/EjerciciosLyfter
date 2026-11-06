@@ -1,10 +1,13 @@
-user_logged_in = True
+from functools import wraps
+
+user_logged_in = False
 
 
 def requires_login(func):
-    def wrapper():
-        if user_logged_in == False:
-            raise ValueError("Usuario no autenticado")
+    @wraps(func)
+    def wrapper(*args):
+        if not user_logged_in :
+            raise PermissionError("Usuario no autenticado")
         return func()
     return wrapper
 
@@ -15,5 +18,5 @@ def view_profile():
 
 try:
     print(view_profile())
-except ValueError as ex:
+except PermissionError as ex:
     print(ex)

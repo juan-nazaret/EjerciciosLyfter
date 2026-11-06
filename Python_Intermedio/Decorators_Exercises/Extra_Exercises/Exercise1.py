@@ -1,10 +1,13 @@
+from functools import wraps
+
 class User:
     def __init__(self,name):
         self.name = name
 
 
 def name_twice(func):
-    def wrapper(user):
+    @wraps(func)
+    def wrapper(*args):
         return f"{func(user)}\n{func(user)}"
     return wrapper
 
