@@ -8,7 +8,7 @@ class Node:
 class Stack:
     head: Node
 
-    def __init__(self, head):
+    def __init__(self, head=None):
         self.head = head
 
     def print_structure(self):
@@ -19,28 +19,38 @@ class Stack:
             current_node = current_node.next
 
     def push(self,new_node):
+        current_node = self.head
         self.head = new_node
+        self.head.next = current_node
 
     def pop(self):
-        if self.head.next == None:
-            self.head = None
+        current_node = self.head
+        if self.head == None:
+            print('La lista esta vacía')
         else:
             self.head = self.head.next
+        return current_node
 
 
 first_node = Node("Soy el primer nodo")
-second_node = Node("Soy el segundo nodo",first_node)
-third_node = Node("Soy el tercer nodo",second_node)
-forth_node = Node("Soy el cuarto nodo", third_node)
+second_node = Node("Soy el segundo nodo")
+third_node = Node("Soy el tercer nodo")
+forth_node = Node("Soy el cuarto nodo")
+fifth_node = Node('soy el quinto nodo')
+sixth_node = Node('Soy el sexto nodo')
+stack = Stack(forth_node)
+#stack.print_structure()
+stack.push(fifth_node)
+stack.print_structure()
+print('*****')
+stack.pop()
+stack.pop()
+stack.pop()
+stack.pop()
+stack.pop()
+stack.pop()
+stack.push(sixth_node)
 
-stack = Stack(third_node)
 stack.print_structure()
-print("\npush*****")
-stack.push(forth_node)
-stack.print_structure()
-print("\npop******")
-stack.pop()
-stack.pop()
-stack.pop()
 
-stack.print_structure()
+

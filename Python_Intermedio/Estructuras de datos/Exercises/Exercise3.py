@@ -12,17 +12,19 @@ class BinaryTree:
     def __init__(self,root):
         self.root = root
 
-    def print_structure(self,current_node):
+    def print_structure(self,current_node = 0, depth = 0):
+        if current_node == 0:
+            current_node = self.root
         if current_node is None:
             return
         
-        print(current_node.data)
+        print(f'depth: {depth}, {current_node.data}')
+        self.print_structure(current_node.left, depth + 1)
+        self.print_structure(current_node.right, depth + 1)
 
-        self.print_structure(current_node.left)
-        self.print_structure(current_node.right)
-
+node7 = Node('soy node 7')
 node6 = Node('soy node 6')
-node5 = Node('soy node 5')
+node5 = Node('soy node 5',node7)
 node4 = Node('soy node 4')
 node3 = Node('soy node 3',node6)
 node2  = Node('soy node 2',node4,node5)
