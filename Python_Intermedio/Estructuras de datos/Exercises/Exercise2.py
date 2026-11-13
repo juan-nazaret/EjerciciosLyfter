@@ -55,7 +55,8 @@ class DoubleEndedQueue:
         else:
             self.head = self.head.next
             current_node.next = None
-            current_node.prev = None        
+            current_node.prev = None   
+            self.head.prev = None
         return current_node
 
     def pop_right(self):
@@ -70,6 +71,7 @@ class DoubleEndedQueue:
             self.tail = self.tail.prev
             current_node.next = None
             current_node.prev = None
+            self.tail.next = None
         return current_node
 
 forth_node = Node("Soy el cuarto nodo")
@@ -85,41 +87,28 @@ second_node.prev = first_node
 
 
 deq = DoubleEndedQueue()
-
-deq.print_structure()
-
-deq.pop_left()
-deq.pop_right()
-
-print('****')
-deq.print_structure()
-
-
-deq.pop_left()
-print('****')
-deq.print_structure()
-
-
-deq.pop_right()
-print('****')
-
-deq.pop_right()
-deq.pop_right()
-
-deq.pop_right()
-
-deq.pop_right()
-deq.pop_left()
-deq.pop_left()
-deq.pop_left()
-deq.pop_left()
-
+deq.push_right(first_node)
 deq.push_right(second_node)
-print('///////')
+deq.push_right(third_node)
+deq.pop_right()
 deq.print_structure()
-print('888888')
-deq.push_left(third_node)
+deq.push_left(forth_node)
+deq.push_left(fifth_node)
+print('********push left and right')
+deq.print_structure()
+deq.pop_right()
+print('******** pop right:')
+deq.print_structure()
+deq.pop_left()
+print('******** pop left')
+deq.print_structure()
+deq.pop_right()
+print('******** pop right:')
+deq.print_structure()
+deq.pop_left()
+print('******** pop left')
+deq.print_structure()
+deq.push_right(forth_node)
+print('******** push right:')
 deq.print_structure()
 
-deq.print_structure()
-print(f'{deq.tail.data} and {deq.head.data}')

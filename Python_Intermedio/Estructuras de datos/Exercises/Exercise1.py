@@ -54,3 +54,4 @@ stack.push(sixth_node)
 stack.print_structure()
 
 
+print('bye')
