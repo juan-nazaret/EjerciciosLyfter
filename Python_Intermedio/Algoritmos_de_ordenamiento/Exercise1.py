@@ -1,6 +1,5 @@
 def bubble_sort(list_to_sort):
     for outer_index in range(0, len(list_to_sort )- 1):
-        print(outer_index)
         for index in range(0,(len(list_to_sort) -1)-outer_index):
             current_item = list_to_sort[index]
             next_item = list_to_sort[index + 1]
