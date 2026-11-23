@@ -40,8 +40,7 @@ def binary_search(my_list, target):
         else:
             high = mid - 1
     return False
-
-
+    
 Preguntas:
 ¿Cuál es la complejidad de cada algoritmo?
 - La complejidad del primero es O(N) mientras que la del segundo es O(log n)
@@ -54,6 +53,8 @@ Preguntas:
 ¿Qué pasa si la lista no está ordenada?
 - Si la lista no está ordenada la segunda versión no recorrerá todos los elementos ya que fue diseñado para acercarse lo mas posible
     al target empezando desde la mitad de la lista pero no funciona en una lista no ordenada
+
+
 
 
 3.- 
