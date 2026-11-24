@@ -45,7 +45,7 @@ class DoublyLinkedList:
             self.head = new_node
             return
         current_node = self.tail
-        self.tail = Node(data)
+        self.tail = new_node
         self.tail.prev = current_node
         current_node.next = self.tail
 
@@ -57,35 +57,38 @@ class DoublyLinkedList:
             self.tail = new_node
             return
         current_node = self.head
-        self.head =  Node(data)
+        self.head =  new_node
         self.head.next = current_node
         current_node.prev = self.head
 
 
     def delete(self,data):
-        current_node = self.head
-        if current_node.data == data:
-            self.head = current_node.next
-            current_node.next = None
-            if self.head is None:
-                self.tail = None
-                return current_node
-            self.head.prev = None
-            current_node.next = None
-            return current_node  #retorna el nodo eliminado
-        while current_node.next is not None:
-            next_node = current_node.next
-            if next_node.data == data:
-                current_node.next = next_node.next
-                if current_node.next is not None:
-                    current_node.next.prev = current_node
-                else:
-                    self.tail = current_node
-                next_node.next = None
-                next_node.prev = None
-                
-                return current_node #retorna el nodo eliminado
-            current_node = current_node.next
+        if self.head is None:
+            print('La lista esta vacía\n')
+        else:
+            current_node = self.head
+            if current_node.data == data:
+                self.head = current_node.next
+                current_node.next = None
+                if self.head is None:
+                    self.tail = None
+                    return current_node
+                self.head.prev = None
+                current_node.next = None
+                return current_node  #retorna el nodo eliminado
+            while current_node.next is not None:
+                next_node = current_node.next
+                if next_node.data == data:
+                    current_node.next = next_node.next
+                    if current_node.next is not None:
+                        current_node.next.prev = current_node
+                    else:
+                        self.tail = current_node
+                    next_node.next = None
+                    next_node.prev = None
+                    
+                    return next_node #retorna el nodo eliminado
+                current_node = current_node.next
 
 
     def sort(self):
