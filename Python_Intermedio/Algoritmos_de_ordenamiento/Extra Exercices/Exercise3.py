@@ -2,7 +2,7 @@ def numbers_only(function):
     def wrapper(list_of_numbers):
         if len(list_of_numbers) == 0:
             raise ValueError ('Error: La lista esta vacía')
-        if  not all(isinstance(x, int) for x in list_of_numbers):
+        if  not all(isinstance(x, (int,float)) for x in list_of_numbers):
             raise ValueError('Error: La lista contiene elementos no numéricos')
         return function(list_of_numbers)
     return wrapper
@@ -35,7 +35,7 @@ def bubble_sorting(list_to_sort):
     except ValueError as x:
         print(x)
 
-list1 = [10,5,3,9,8,6,5,1,25,8]
+list1 = [10,5,3,9,8,6,5,1,2.8]
 list2 =  [10,5,3,9,8,'hola',5,1,25,8]
 list3 = []
 

@@ -123,6 +123,12 @@ class DoublyLinkedList:
                         current_node.prev = self.head
                         self.head.prev = None
                         self.head.next = current_node
+                        if current_node.next is not None:
+                            current_node.next.prev = current_node
+                        else:
+                            self.tail = current_node
+                            self.tail.next = None
+                            continue
                         current_node = self.head.next
                         next_node = current_node.next
                         aux = self.head
@@ -133,7 +139,7 @@ class DoublyLinkedList:
                         aux.next = next_node
                         next_node.next = current_node
                         next_node.prev = aux
-                        current_node.prev = next_node
+                        current_node.prev = next_node                                            
                         current_node.next = None
                         self.tail = current_node
                         aux = next_node
@@ -156,16 +162,16 @@ class DoublyLinkedList:
 
 deq = DoublyLinkedList()
 deq.append(9)
-deq.prepend(0)
-deq.prepend(8)
-deq.append(7)
-deq.prepend(3)
+deq.prepend(10)
+
+
 
 
 deq.sort()
 deq.print_forward()
 deq.print_backward()
 
+'''
 deq.append(1)
 deq.print_forward()
 deq.print_backward()
@@ -185,3 +191,4 @@ deq.sort()
 
 deq.print_forward()
 deq.print_backward()
+'''
