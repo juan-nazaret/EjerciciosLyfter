@@ -74,6 +74,7 @@ def string_backwards(my_string):
         my_word_list.append(my_string[i])
     word = "".join(my_word_list)
     print(f"\nEJERCICIO 4: {word}")
+    return word
 
 my_string = "Hola mundo"
 string_backwards(my_string)
@@ -85,7 +86,9 @@ Ejercicio 5:
 """
 
 
-my_word = "Hola mundo yo soy Juan Nazaret 223Oo"
+my_word = "Python es un lenguaje de programacion versatil y potente utilizado en desarrollo web, ciencia de datos y automatiz"
+
+
 def upper_lower_cases(my_word):
 
     capital_letters = 0
@@ -97,8 +100,9 @@ def upper_lower_cases(my_word):
                 capital_letters = capital_letters + 1 
             elif my_word[i].islower():
                 lower_letters = lower_letters + 1
+    
     print(f"\nEJERCICIO 5 : There are {capital_letters} upper cases and {lower_letters} lower cases" )
-
+    return capital_letters,lower_letters
 
 upper_lower_cases(my_word)
 
@@ -120,6 +124,7 @@ def creating_words_list(word):
                 new_word = ""
     ordered_words = "-".join(sorted(words_list))
     print(f"\nEJERCICIO 6: {ordered_words}")
+    return ordered_words
 
 
 creating_words_list("hola-cachorro-perro-rico-hello-yo-mas-dos")
@@ -144,6 +149,8 @@ def is_it_prime_number(numbers_list):
         if prime == True:
             prime_list.append(number)
     print(f"\nEJERCICIO 7: {prime_list}")
+    return prime_list
+
 
 
 is_it_prime_number([5,9,3,6,7,8,4,2,5,69,58,47,52,41,63,55,88])

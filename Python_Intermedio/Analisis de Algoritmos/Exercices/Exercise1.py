@@ -1,0 +1,15 @@
+def bubble_sort(list_to_sort):
+    for outer_index in range(0, len(list_to_sort )- 1): #O(N)
+        for index in range(0,(len(list_to_sort) -1)-outer_index): #O(N^2)
+            current_item = list_to_sort[index] #O(1)
+            next_item = list_to_sort[index + 1] #O(1)
+            print(f'current item: {current_item}, next item: {next_item} ') #O(1)
+            if current_item > next_item: #O(1)
+                print('current item es mayor que el next item, se van a intercambiar') #O(1)
+                list_to_sort[index] = next_item #O(1)
+                list_to_sort[index + 1] = current_item #O(1)
+            print(list_to_sort) #O(1)
+
+list1 = [10,5,3,9,8,6,5,1,25,-9] #O(1)
+bubble_sort(list1) #O(N^2)
+print(list1) #O(1)
