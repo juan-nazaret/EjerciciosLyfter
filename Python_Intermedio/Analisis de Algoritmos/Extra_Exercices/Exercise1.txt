@@ -1,0 +1,75 @@
+1.-
+
+def manual_add(n):
+    result = 0 #N(1)
+    for i in range(1, number + 1): #O(N)
+        result += i #O(1)
+    return result #O(1)
+
+
+def add_formula(n):
+    return number * (number + 1) // 2
+
+
+Preguntas:
+¿Cuál es la complejidad de cada versión?
+- de la primera versión la complejidad es O(N) y la segunda versión es O(1)
+¿Qué versión usaría si number = 1 000 000 000? ¿Por qué?
+
+Usaría la segunda versión porque al ser un bucle que inicia desde 1 recorrería todos los números y en la segunda versión se podría decir que es "directo"
+
+2.- 
+
+Considere los siguientes dos algoritmos:
+
+def linear_search(my_list, target):
+    for item in my_list: #O(N)
+        if item == target: #(1)
+            return True #O(1)
+    return False #O(1)
+
+def binary_search(my_list, target):
+    low = 0 #O(1)
+    high = len(lst) - 1 
+    while low <= high: #O(log n)
+        mid = (low + high) // 2 
+        if my_list[mid] == target:
+            return True
+        elif my_list[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return False
+    
+Preguntas:
+¿Cuál es la complejidad de cada algoritmo?
+- La complejidad del primero es O(N) mientras que la del segundo es O(log n)
+
+¿En qué condiciones conviene usar cada uno?
+- el primero conviene usarlo si los elementos de la lista no están ordenados o si los elementos están ordenados y es un número de elementos pequeño, 
+    ya que recorrerá cada uno de los elementos y el segundo conviene usarlo para números grandes de elementos en lista
+    siempre y cuando los elementos de la lista estén ordenados
+
+¿Qué pasa si la lista no está ordenada?
+- Si la lista no está ordenada la segunda versión no recorrerá todos los elementos ya que fue diseñado para acercarse lo mas posible
+    al target empezando desde la mitad de la lista pero no funciona en una lista no ordenada
+
+
+
+
+3.- 
+
+Analice la siguiente función:
+
+def print_all_pairs(my_dict):
+    for key1 in my_dict: #O(N)
+        for key2 in my_dict: #O(N^2)
+            print(f"{key1}-{key2}") #O(1)
+
+
+Preguntas:
+¿Cuál es la complejidad temporal?
+- O(N^2)
+¿Cuanto dura si hay 1 millón de claves?
+- el tiempo de ejecución de una clave al cuadrado
+            
